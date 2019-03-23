@@ -1,9 +1,11 @@
 package application;
 
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import db.DB;
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
 import model.entities.Department;
@@ -11,7 +13,7 @@ import model.entities.Seller;
 
 public class Program {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		
 		Scanner sc = new Scanner(System.in);
 
@@ -55,7 +57,12 @@ public class Program {
 		
 		sc.close();
 		
-		
+		if(!DB.getConnection().isClosed()){
+			DB.closeConnection();
+			System.out.println("Conection closed now!");
+		}else{
+			System.out.println("Conection closed already!");
+		}
 		
 	}
 
