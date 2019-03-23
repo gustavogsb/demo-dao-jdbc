@@ -59,9 +59,9 @@ public class Program {
 		
 		if(!DB.getConnection().isClosed()){
 			DB.closeConnection();
-			System.out.println("Conection closed now!");
+			System.out.println("Connection closed now!");
 		}else{
-			System.out.println("Conection closed already!");
+			System.out.println("Connection closed already!");
 		}
 		
 	}
